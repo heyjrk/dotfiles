@@ -85,31 +85,48 @@ outer.right = 0
 
 # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
-# You can uncomment this line to open up terminal with alt + enter shortcut
-# See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-# alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
+# alt-enter opens Ghostty in the focused workspace. Fullscreen is alt-shift-enter.
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+# Direction is on the arrows so every letter can be a workspace.
+# Vim keys still work with ctrl held down.
+alt-left = 'focus left'
+alt-down = 'focus down'
+alt-up = 'focus up'
+alt-right = 'focus right'
+alt-ctrl-h = 'focus left'
+alt-ctrl-j = 'focus down'
+alt-ctrl-k = 'focus up'
+alt-ctrl-l = 'focus right'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
+alt-shift-left = 'move left'
+alt-shift-down = 'move down'
+alt-shift-up = 'move up'
+alt-shift-right = 'move right'
+alt-ctrl-shift-h = 'move left'
+alt-ctrl-shift-j = 'move down'
+alt-ctrl-shift-k = 'move up'
+alt-ctrl-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
+alt-shift-enter = 'fullscreen'
+alt-semicolon = 'mode resize'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+# New Ghostty window beside whatever is already in this workspace.
+alt-enter = [
+  'layout --root h_tiles',
+  'exec-and-forget open -n -b com.mitchellh.ghostty',
+]
+
+# alt-<key> focuses that workspace, creating it if needed.
+# alt-shift-<key> moves the focused window there.
+# Numbers are scratch spaces. Letters with comments are app homes.
+alt-0 = 'workspace 0'
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -119,36 +136,34 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
-alt-a = 'workspace A' # for Codex
-alt-b = 'workspace B' # for Browser
-alt-c = 'workspace C' # for VS Code
-alt-d = 'workspace D' # for Docker
-alt-e = 'workspace E' # for File Explorer (Finder)
-alt-s = 'workspace S' # for Telegram
-alt-m = 'workspace M' # for Granola
-alt-n = 'workspace N' # for Teams
-alt-o = 'workspace O' # for Obsidian
-alt-p = 'workspace P' # for Preview
-alt-t = 'workspace T' # for Terminal
-alt-v = 'workspace V' # for Video Editing
-alt-x = 'workspace X' # for Excel
-
-# Ctrl preserves existing focus, move, fullscreen, and resize bindings.
+alt-a = 'workspace A' # ChatGPT
+alt-b = 'workspace B' # Browser
+alt-c = 'workspace C' # VS Code
+alt-d = 'workspace D' # Docker
+alt-e = 'workspace E' # Finder
 alt-f = 'workspace F'
-alt-g = 'workspace G'
-alt-ctrl-h = 'workspace H'
+alt-g = 'workspace G' # Granola
+alt-h = 'workspace H'
 alt-i = 'workspace I'
-alt-ctrl-j = 'workspace J'
-alt-ctrl-k = 'workspace K'
-alt-ctrl-l = 'workspace L'
-alt-q = 'workspace Q'
+alt-j = 'workspace J'
+alt-k = 'workspace K'
+alt-l = 'workspace L'
+alt-m = 'workspace M'
+alt-n = 'workspace N' # Notion
+alt-o = 'workspace O' # Obsidian
+alt-p = 'workspace P' # Preview
+alt-q = 'workspace Q' # Grok Bot
 alt-r = 'workspace R'
+alt-s = 'workspace S' # Slack
+alt-t = 'workspace T' # Teams
 alt-u = 'workspace U'
+alt-v = 'workspace V'
+alt-w = 'workspace W'
+alt-x = 'workspace X' # Excel
 alt-y = 'workspace Y'
-alt-z = 'workspace Z'
+alt-z = 'workspace Z' # Cursor
 
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+alt-shift-0 = 'move-node-to-workspace 0'
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
@@ -158,35 +173,32 @@ alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-a = 'move-node-to-workspace A' # for Codex
-alt-shift-b = 'move-node-to-workspace B' # for Browser
-alt-shift-c = 'move-node-to-workspace C' # for VS Code
-alt-shift-d = 'move-node-to-workspace D' # for Docker
-alt-shift-e = 'move-node-to-workspace E' # for File Explorer (Finder)
-alt-shift-s = 'move-node-to-workspace S' # for Telegram
-alt-shift-m = 'move-node-to-workspace M' # for Granola
-alt-shift-n = 'move-node-to-workspace N' # for Teams
-alt-shift-o = 'move-node-to-workspace O' # for Obsidian
-alt-shift-p = 'move-node-to-workspace P' # for Preview
-alt-shift-t = 'move-node-to-workspace T' # for Terminal
-alt-shift-v = 'move-node-to-workspace V' # for Video Editing
-alt-shift-x = 'move-node-to-workspace X' # for Excel
-
-# Ctrl preserves existing focus, move, fullscreen, and resize bindings.
-alt-ctrl-shift-f = 'move-node-to-workspace F'
+alt-shift-a = 'move-node-to-workspace A'
+alt-shift-b = 'move-node-to-workspace B'
+alt-shift-c = 'move-node-to-workspace C'
+alt-shift-d = 'move-node-to-workspace D'
+alt-shift-e = 'move-node-to-workspace E'
+alt-shift-f = 'move-node-to-workspace F'
 alt-shift-g = 'move-node-to-workspace G'
-alt-ctrl-shift-h = 'move-node-to-workspace H'
+alt-shift-h = 'move-node-to-workspace H'
 alt-shift-i = 'move-node-to-workspace I'
-alt-ctrl-shift-j = 'move-node-to-workspace J'
-alt-ctrl-shift-k = 'move-node-to-workspace K'
-alt-ctrl-shift-l = 'move-node-to-workspace L'
+alt-shift-j = 'move-node-to-workspace J'
+alt-shift-k = 'move-node-to-workspace K'
+alt-shift-l = 'move-node-to-workspace L'
+alt-shift-m = 'move-node-to-workspace M'
+alt-shift-n = 'move-node-to-workspace N'
+alt-shift-o = 'move-node-to-workspace O'
+alt-shift-p = 'move-node-to-workspace P'
 alt-shift-q = 'move-node-to-workspace Q'
-alt-ctrl-shift-r = 'move-node-to-workspace R'
+alt-shift-r = 'move-node-to-workspace R'
+alt-shift-s = 'move-node-to-workspace S'
+alt-shift-t = 'move-node-to-workspace T'
 alt-shift-u = 'move-node-to-workspace U'
+alt-shift-v = 'move-node-to-workspace V'
+alt-shift-w = 'move-node-to-workspace W'
+alt-shift-x = 'move-node-to-workspace X'
 alt-shift-y = 'move-node-to-workspace Y'
 alt-shift-z = 'move-node-to-workspace Z'
-
-alt-shift-f = 'fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -196,8 +208,6 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
 alt-space = 'mode launcher'
-
-alt-shift-r = 'mode resize'
 
 [mode.resize.binding]
 h = 'resize width -50'
@@ -216,12 +226,16 @@ esc = 'mode main'
 
 [mode.launcher.binding]
 a = ['exec-and-forget open -b com.openai.codex', 'workspace A', 'mode main']
+b = ['exec-and-forget open -b com.google.Chrome', 'workspace B', 'mode main']
 c = ['exec-and-forget open -b com.microsoft.VSCode', 'workspace C', 'mode main']
 d = ['exec-and-forget open -b com.docker.docker', 'workspace D', 'mode main']
-s = ['exec-and-forget open -b com.tdesktop.Telegram', 'workspace S', 'mode main']
+g = ['exec-and-forget open -b com.granola.app', 'workspace G', 'mode main']
+q = ['exec-and-forget open -b com.anysphere.sand', 'workspace Q', 'mode main']
+z = ['exec-and-forget open -b com.todesktop.230313mzl4w4u92', 'workspace Z', 'mode main']
+n = ['exec-and-forget open -b notion.id', 'workspace N', 'mode main']
 o = ['exec-and-forget open -b md.obsidian', 'workspace O', 'mode main']
-t = ['exec-and-forget open -b com.mitchellh.ghostty', 'workspace T', 'mode main']
-b = ['exec-and-forget open -b com.google.Chrome', 'workspace B', 'mode main']
+s = ['exec-and-forget open -b com.tinyspeck.slackmacgap', 'workspace S', 'mode main']
+t = ['exec-and-forget open -b com.microsoft.teams2', 'workspace T', 'mode main']
 
 esc = 'mode main'
 
@@ -242,11 +256,8 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-[workspace-to-monitor-force-assignment]
-4 = '^built-in retina display$' # Monitor sequence number from left to right. 1-based indexing
-2 = 1                           # Main monitor
-3 = 3                           # Non-main monitor in case when there are only two monitors
-
+# Numbered workspaces are scratch spaces and stay on whichever monitor
+# they were created on. Summon them with aero-desk when a second display is attached.
 
 # [workspace-to-monitor-force-assignment]
 # 1 = 1 # Monitor sequence number from left to right. 1-based indexing
@@ -268,24 +279,28 @@ if.app-id = 'com.openai.codex'
 run = "move-node-to-workspace A"
 
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace T"
-
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = "move-node-to-workspace T"
-
-[[on-window-detected]]
 if.app-id = 'com.google.Chrome'
 run = "move-node-to-workspace B"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
+run = "move-node-to-workspace T"
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
 run = "move-node-to-workspace N"
 
 [[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = "move-node-to-workspace S"
+
+[[on-window-detected]]
+if.app-id = 'com.anysphere.sand'
+run = "move-node-to-workspace Q"
+
+[[on-window-detected]]
 if.app-id = 'com.granola.app'
-run = "move-node-to-workspace M"
+run = "move-node-to-workspace G"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -308,17 +323,10 @@ if.app-id = 'com.electron.dockerdesktop'
 run = "move-node-to-workspace D"
 
 [[on-window-detected]]
-if.app-id = 'org.videolan.vlc'
-run = "move-node-to-workspace V"
-
-[[on-window-detected]]
 if.app-id = 'com.todesktop.230313mzl4w4u92'
-run = "move-node-to-workspace C"
+run = "move-node-to-workspace Z"
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = "move-node-to-workspace O"
 
-[[on-window-detected]]
-if.app-id = 'com.tdesktop.Telegram'
-run = "move-node-to-workspace S"

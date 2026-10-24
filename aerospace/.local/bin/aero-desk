@@ -11,9 +11,9 @@ Usage: aero-desk <preset>
 
 Presets:
   codex       Open Codex and focus workspace A
-  dev         Open VS Code, Ghostty, Chrome; bring C/T/W to this monitor
-  comms       Open Telegram and Teams; bring G/N to this monitor
-  ops         Open Docker and Beekeeper; bring D/B to this monitor
+  dev         Open VS Code, Ghostty, and Chrome; Ghostty tiles beside Code on C, Chrome on B
+  comms       Open Slack and Teams; bring S/T to this monitor
+  ops         Open Docker and Beekeeper on D
   share       Disable AeroSpace tiling for screen sharing
   normal      Re-enable AeroSpace tiling and reload config
   list        Print available presets
@@ -38,6 +38,13 @@ open_app() {
   "$OPEN_BIN" -b "$bundle_id" >/dev/null 2>&1 || "$OPEN_BIN" -a "$app_name" >/dev/null 2>&1 || true
 }
 
+open_new() {
+  local bundle_id="$1"
+  local app_name="$2"
+
+  "$OPEN_BIN" -n -b "$bundle_id" >/dev/null 2>&1 || "$OPEN_BIN" -n -a "$app_name" >/dev/null 2>&1 || true
+}
+
 focus_workspace() {
   aero workspace "$1"
 }
@@ -60,25 +67,28 @@ case "$preset" in
     focus_workspace A
     ;;
   dev)
+    focus_workspace C
+    aero layout --root h_tiles
     open_app "com.microsoft.VSCode" "Visual Studio Code"
-    open_app "com.mitchellh.ghostty" "Ghostty"
     open_app "com.google.Chrome" "Google Chrome"
+    open_new "com.mitchellh.ghostty" "Ghostty"
     sleep 1
-    summon_workspaces C T W
+    summon_workspaces C B
     focus_workspace C
     ;;
   comms)
-    open_app "com.tdesktop.Telegram" "Telegram"
+    open_app "com.tinyspeck.slackmacgap" "Slack"
     open_app "com.microsoft.teams2" "Microsoft Teams"
     sleep 1
-    summon_workspaces S N
+    summon_workspaces S T
     focus_workspace S
     ;;
   ops)
+    focus_workspace D
     open_app "com.docker.docker" "Docker"
     open_app "io.beekeeperstudio.desktop" "Beekeeper Studio"
     sleep 1.5
-    summon_workspaces D B
+    summon_workspaces D
     focus_workspace D
     ;;
   share)

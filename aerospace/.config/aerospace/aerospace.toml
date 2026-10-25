@@ -269,6 +269,10 @@ alt-shift-l = ['join-with right', 'mode main']
 #   'secondary',
 #   'dell',
 # ] # You can specify multiple patterns. The first matching pattern will be used
+[workspace-to-monitor-force-assignment]
+4 = '^built-in retina display$' # Monitor sequence number from left to right. 1-based indexing
+2 = 1                           # Main monitor
+3 = 3
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
@@ -329,4 +333,3 @@ run = "move-node-to-workspace Z"
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = "move-node-to-workspace O"
-
